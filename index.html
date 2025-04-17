@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compiler IR Visualizer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="panel">
+        <p class="eyebrow">Compilers + Optimization</p>
+        <h1>Compiler IR Visualizer</h1>
+        <p class="desc">Parse expressions to AST, emit three-address code, and run constant-folding optimizations.</p>
+
+        <div class="card">
+          <h2>Expression Input</h2>
+          <textarea id="exprInput" rows="4">(a + 4) * (b - 2) + (8 / 2) * (c + 1)</textarea>
+          <div class="row">
+            <button id="compileBtn">Compile</button>
+            <button id="optBtn">Optimize IR</button>
+          </div>
+        </div>
+
+        <div class="card metrics">
+          <h2>IR Stats</h2>
+          <p>AST Nodes: <strong id="nodeCount">0</strong></p>
+          <p>IR Instructions: <strong id="irCount">0</strong></p>
+          <p>Optimized Instr: <strong id="optCount">0</strong></p>
+        </div>
+      </section>
+
+      <section class="right">
+        <article class="card">
+          <h2>Abstract Syntax Tree</h2>
+          <canvas id="astCanvas" width="980" height="280"></canvas>
+        </article>
+        <article class="card">
+          <h2>Three-Address Code</h2>
+          <pre id="irOut" class="code"></pre>
+        </article>
+        <article class="card">
+          <h2>Optimized IR</h2>
+          <pre id="optOut" class="code"></pre>
+        </article>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
